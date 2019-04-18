@@ -18,7 +18,7 @@ import static java.time.Clock.system;
 public class LinkedList {
     private  node head=null ;
    // private node node;
-    
+    //Add Element In Spacific Place
     public void add (char c, int index){
         node i=head;
         node c1=new node();
@@ -34,6 +34,7 @@ public class LinkedList {
             i.next=c1;
         }
     }
+    //Add In Tail
     public void add(char c){
         node i=head;
         node c2=new node();
@@ -49,6 +50,7 @@ public class LinkedList {
         }
         
     }
+    //Print The LinkedList (Just A Helper)
     public void print(){
         node i=head;
        while(i!=null){
@@ -56,6 +58,7 @@ public class LinkedList {
         i=i.next;
        }
     }
+    //Getting Size Of Linked List
     public  int  getlength(){
         node i=head;
         int length=0;
@@ -65,6 +68,7 @@ public class LinkedList {
         }
         return length;
     }
+    //Get The Value in Spacific Index
     public char get(int index){
       node i=head;
         int counter;
@@ -85,6 +89,7 @@ public class LinkedList {
             return i.value;
         }
     }
+    //Change Spacific Value by User's value
     public void set(int index, char c){
         int counter;
         counter=getlength();
@@ -106,11 +111,13 @@ public class LinkedList {
         }
         
     }
+    //Clear The Linked List
     public void clear(){
         node i=head;
         head=null;
         i.next =null;
     }
+    //Return If Linked list is Empty Or Not
     public boolean isEmpty(){
         node i=head;
         if(i==null){
@@ -119,6 +126,7 @@ public class LinkedList {
             return false;
         }
     }
+    //Remove Spacifc Index 
     public void remove(int index){
         node i=head;
         int counter;
@@ -144,6 +152,7 @@ public class LinkedList {
             j.next=null;
         }
     }
+    //Check if Linked list has The same value  twice
     public boolean contains(char c){
         node i=head;
         while(i!=null){
