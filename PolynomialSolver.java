@@ -96,22 +96,26 @@ public class PolynomialSolver {
             }
                 for(int count=0;count<row;count++){
                     for(int count_2=0;count_2<coloum;count_2++){
+			    //check if the exponent has the same power
                         if(po[x].exponent.get(count)==po[y].exponent.get(count_2)){
                             int k1=po[x].coeff.get(count)+po[y].coeff.get(count_2);
                                 po[z].coeff.add(k1);
                                 po[z].exponent.add(po[x].exponent.get(count));
-                        }else if(po[x].exponent.get(count)!=po[y].exponent.get(count_2)){
+                        } //check if the exponent hasn't the same power
+			 else if(po[x].exponent.get(count)!=po[y].exponent.get(count_2)){
+				//check if the exponent is already taken or not
                              if( po[x].exponent.contains(po[x].exponent.get(count))== false){
                                 po[z].coeff.add(po[x].coeff.get(count));
                                 po[z].exponent.add(po[x].exponent.get(count)); 
                              }
+				//check if the exponent is already taken or not
                              if( po[y].exponent.contains(po[y].exponent.get(count_2))== false){
                                 po[z].coeff.add(po[y].coeff.get(count_2));
                                 po[z].exponent.add(po[y].exponent.get(count_2));
                               }
                         }
                     }
-                }
+                } // put it in array 2D of 2 coloums one for coeff and another for exp
                 int[][] arr=new int [po[z].coeff.getlength()][2];
                 for(int i=0;i<po[z].coeff.getlength();i++){
                         arr[i][0]=po[z].coeff.get(i);
@@ -136,15 +140,19 @@ public class PolynomialSolver {
             }
                 for(int count=0;count<row;count++){
                     for(int count_2=0;count_2<coloum;count_2++){
+			    //check if the exponent has the same power
                         if(po[x].exponent.get(count)==po[y].exponent.get(count_2)){
                             int k1=po[x].coeff.get(count)-po[y].coeff.get(count_2);
                                 po[z].coeff.add(k1);
                                 po[z].exponent.add(po[x].exponent.get(count));
-                        }else if(po[x].exponent.get(count)!=po[y].exponent.get(count_2)){
+                        } //check if the exponent hasn't the same power
+			 else if(po[x].exponent.get(count)!=po[y].exponent.get(count_2)){
+				//check if the exponent is already taken or not
                              if( po[x].exponent.contains(po[x].exponent.get(count))== false){
                                 po[z].coeff.add(po[x].coeff.get(count));
                                 po[z].exponent.add(po[x].exponent.get(count)); 
                              }
+				//check if the exponent is already taken or not
                              if( po[y].exponent.contains(po[y].exponent.get(count_2))== false){
                                 po[z].coeff.add(po[y].coeff.get(count_2));
                                 po[z].exponent.add(po[y].exponent.get(count_2));
@@ -152,6 +160,7 @@ public class PolynomialSolver {
                         }
                     }
                 }
+		 // put it in array 2D of 2 coloums one for coeff and another for exp
                 int[][] arr=new int [po[z].coeff.getlength()][2];
                 for(int i=0;i<po[z].coeff.getlength();i++){
                         arr[i][0]=po[z].coeff.get(i);
@@ -173,7 +182,7 @@ public class PolynomialSolver {
             }else if(size2>size1){
                   row=size2;
                 coloum=size1;
-            }
+            }	// multiplay the polonomial coeff and calculate sum of exp
                 for(int count=0;count<row;count++){
                     for(int count_2=0;count_2<coloum;count_2++){
                        int k=po[x].coeff.get(count)*po[y].coeff.get(count_2);
@@ -182,6 +191,7 @@ public class PolynomialSolver {
                        po[z].exponent.add(k2);
                     }
                 }
+		//check if there are repeated exp and add them 
                 for(int count=0;count< po[z].exponent.getlength();count++){
                     for(int count2=count+1;count2< po[z].exponent.getlength();count2++){
                         if(po[z].exponent.get(count)==po[z].exponent.get(count2)){
@@ -192,6 +202,7 @@ public class PolynomialSolver {
                         }
                     }
                 }
+		 // put it in array 2D of 2 coloums one for coeff and another for exp
                 int[][] arr=new int [po[z].coeff.getlength()][2];
                 for(int i=0;i<po[z].coeff.getlength();i++){
                         arr[i][0]=po[z].coeff.get(i);
